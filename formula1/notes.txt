@@ -1,0 +1,12 @@
+reminder for me 
+
+var = In C#, var is an implicitly typed local variable declaration. When you use var instead of specifying an explicit type, you're telling the compiler to infer the type of the variable from the expression on the right side of the initialization statement. The compiler then assigns the most specific type possible, based on the value that the variable is set to hold.
+
+foreach = // Let's say we have a list of integers
+List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+
+// Now, we want to print each number in the list
+foreach (var number in numbers)
+{
+    Console.WriteLine(number);
+}

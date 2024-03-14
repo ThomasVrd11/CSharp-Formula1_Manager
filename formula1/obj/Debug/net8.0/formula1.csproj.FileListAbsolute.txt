@@ -1,0 +1,15 @@
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.AssemblyInfoInputs.cache
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.AssemblyInfo.cs
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.csproj.CoreCompileInputs.cache
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.sourcelink.json
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/bin/Debug/net8.0/formula1
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/bin/Debug/net8.0/formula1.deps.json
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/bin/Debug/net8.0/formula1.runtimeconfig.json
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/bin/Debug/net8.0/formula1.dll
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/bin/Debug/net8.0/formula1.pdb
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.dll
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/refint/formula1.dll
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.pdb
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/formula1.genruntimeconfig.cache
+/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/Debug/net8.0/ref/formula1.dll
