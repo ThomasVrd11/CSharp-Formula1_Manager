@@ -12,6 +12,10 @@ public class Gamesetup
 
     public void InitializeTeamsAndDrivers()
     {
+        //Initialize datas for the teams and drivers inside of dictionaries
+        //making it more readable,easily editable and expandable
+        // teams : team names and performance rating
+        // driver : driver name, performance and team name
         var teamsData = new Dictionary<string, double>
         {
             {"Mercedes", 8.5},
@@ -39,7 +43,7 @@ public class Gamesetup
         ("Lando Norris", 8.5, "McLaren"),
         ("Oscar Piastri", 8.0, "McLaren"),
         ("Fernando Alonso", 8.8, "Aston Martin"),
-        ("Lance Stroll", 7.0, "MerAston Martincedes"),
+        ("Lance Stroll", 7.0, "Aston Martin"),
         ("Esteban Ocon", 7.5, "Alpine"),
         ("Pierre Gasly", 7.5, "Alpine"),
         ("Valtteri Bottas", 7.0, "Alfa Romeo"),
@@ -50,16 +54,21 @@ public class Gamesetup
         ("Logan Sargeant", 5.5, "Williams")
         };
 
+        //Dictionary to store the created Team objects, using team names as keys for easy access.
         var teams = new Dictionary<string, Team>();
 
+        //Create Team objects for each entry in teamsData and add them to the teams dictionary.
         foreach (var team in teamsData)
         {
             teams[team.Key] = new Team(team.Key, team.Value);
         }
+        //Debug line
         Console.WriteLine($"Team: {teams["Ferrari"].Name}, Rating: {teams["Ferrari"].PerformanceFactor}");
 
+        //Loop through each driver in driverData, create a Driver object, and add it to the correct team.
         foreach (var driver in driverData)
         {
+            //Check if the team exist
             if (teams.ContainsKey(driver.TeamName))
             {
                 var newDriver = new Driver(driver.Name, driver.Rating);
@@ -67,7 +76,10 @@ public class Gamesetup
             }
         }
 
+        //Add all Team objects from the teams dictionary to the AllTeams list for global access.
         AllTeams.AddRange(teams.Values);
+
+        //Loop through each team and add all of its drivers to the AllDrivers list for global access.
         foreach (var team in teams.Values)
         {
             foreach (var driver in team.Drivers)
