@@ -8,7 +8,7 @@ public class Gamesetup
 {
     public List<Team> AllTeams { get; set; } = new List<Team>();
     public List<Driver> AllDrivers { get; set; } = new List<Driver>();
-
+    private readonly int[] pointsForPosition = { 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 };
 
     public void InitializeTeamsAndDrivers()
     {
@@ -88,5 +88,70 @@ public class Gamesetup
             }
         }
     }
+    public void SimulateRace(List<Team> teams)
+    {
+        Random random = new Random();
+        var raceResults = new List<(Driver Driver, double performanceScore)>();
+
+        foreach (var team in teams)
+        {
+            foreach (var driver in team.Drivers)
+            {
+                double performanceScore = (team.PerformanceFactor + driver.Rating) * random.NextDouble();
+                raceResults.Add((driver, performanceScore));
+            }
+        }
+        //* Sort drievrs by theur perfrmance score
+        raceResults.Sort((x, y) => y.performanceScore.CompareTo(x.performanceScore));
+
+        //* Displaying race results
+        System.Console.WriteLine("\nRace results:");
+        System.Console.WriteLine("-------------------------------------------------");
+        for (int i = 0; i < raceResults.Count; i++)
+        {
+            System.Console.WriteLine($"{i + 1}. {raceResults[i].Driver.Name} - {raceResults[i].performanceScore}");
+            //* Award points to the drivers
+            if (i < pointsForPosition.Length)
+            {
+                raceResults[i].Driver.Points += pointsForPosition[i];
+            }
+        }
+        System.Console.WriteLine("-------------------------------------------------");
+    }
+    public void RunSeason(List<Team> teams, int racesCount)
+    {
+        for (int raceNumber = 1; raceNumber <= racesCount; raceNumber++)
+        {
+            Console.WriteLine($"\n--- Race {raceNumber} ---");
+            SimulateRace(teams);
+            Thread.Sleep(5000);
+
+            //* Display current standings
+            Console.WriteLine("\nCurrent driver standings:");
+            Console.WriteLine("-------------------------------------------------");
+            var allDrivers = teams.SelectMany(t => t.Drivers).ToList();
+            allDrivers.Sort((x, y) => y.Points.CompareTo(x.Points));
+            foreach (var driver in allDrivers)
+            {
+                Console.WriteLine($"{driver.Name} - {driver.Points} points");
+            }
+            Console.WriteLine("-------------------------------------------------");
+
+            Console.WriteLine("\nCurrent team standings:");
+            Console.WriteLine("-------------------------------------------------");
+            teams.Sort((x, y) => y.GetTotalPoints().CompareTo(x.GetTotalPoints()));
+            foreach (var team in teams)
+            {
+                Console.WriteLine($"{team.Name} - {team.GetTotalPoints()} points");
+            }
+            Console.WriteLine("-------------------------------------------------");
+
+            Console.WriteLine("Press any key to continue to the next race.");
+            Console.ReadKey();
+            Console.Clear();
+        }
+    }
+
+
 }
 
