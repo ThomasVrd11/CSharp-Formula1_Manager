@@ -151,6 +151,51 @@ public class Gamesetup
             Console.Clear();
         }
     }
+    public void EndOfSeason(List<Team> teams)
+    {
+        Console.WriteLine("\n--- End of season ---");
+        Console.WriteLine("\nFinal driver standings:");
+        Console.WriteLine("-------------------------------------------------");
+        var allDrivers = teams.SelectMany(t => t.Drivers).ToList();
+        allDrivers.Sort((x, y) => y.Points.CompareTo(x.Points));
+        foreach (var driver in allDrivers)
+        {
+            Console.WriteLine($"{driver.Name} - {driver.Points} points");
+        }
+        Console.WriteLine("-------------------------------------------------");
+
+        Console.WriteLine("\nFinal team standings:");
+        Console.WriteLine("-------------------------------------------------");
+        teams.Sort((x, y) => y.GetTotalPoints().CompareTo(x.GetTotalPoints()));
+        foreach (var team in teams)
+        {
+            Console.WriteLine($"{team.Name} - {team.GetTotalPoints()} points");
+        }
+        Console.WriteLine("-------------------------------------------------");
+    }
+    public void DisplayTeamStandings(List<Team> teams)
+    {
+        Console.WriteLine("\nCurrent team standings:");
+        Console.WriteLine("-------------------------------------------------");
+        teams.Sort((x, y) => y.GetTotalPoints().CompareTo(x.GetTotalPoints()));
+        foreach (var team in teams)
+        {
+            Console.WriteLine($"{team.Name} - {team.GetTotalPoints()} points");
+        }
+        Console.WriteLine("-------------------------------------------------");
+    }
+    public void DisplayDriverStandings(List<Team> teams)
+    {
+        Console.WriteLine("\nCurrent driver standings:");
+        Console.WriteLine("-------------------------------------------------");
+        var allDrivers = teams.SelectMany(t => t.Drivers).ToList();
+        allDrivers.Sort((x, y) => y.Points.CompareTo(x.Points));
+        foreach (var driver in allDrivers)
+        {
+            Console.WriteLine($"{driver.Name} - {driver.Points} points");
+        }
+        Console.WriteLine("-------------------------------------------------");
+    }
 
 
 }
