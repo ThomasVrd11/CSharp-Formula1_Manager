@@ -124,7 +124,7 @@ public class Gamesetup
         {
             Console.WriteLine($"\n--- Race {raceNumber} ---");
             SimulateRace(teams);
-            Thread.Sleep(5000);
+            
 
             //* Display current standings
             Console.WriteLine("\nCurrent driver standings:");

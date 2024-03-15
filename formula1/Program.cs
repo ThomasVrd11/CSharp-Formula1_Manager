@@ -58,7 +58,7 @@ public class Program
             {
                 System.Console.WriteLine("Invalid team name. Please try again.");
             }
-        }   
+        }
         System.Console.WriteLine($"You have chosen {playerTeam.Name}.");
         System.Console.WriteLine($"Great choice! You are now part of {playerTeam.Name}.");
         System.Console.WriteLine("-------------------------------------------------");
@@ -94,6 +94,15 @@ public class Program
         }
         System.Console.WriteLine($"You are now part of {playerTeam.Name} and your teammate is {playerTeam.Drivers[1 - indexDriver].Name}.");
         System.Console.WriteLine($"{playerTeam.Name} drivers for the season: {playerTeam.Drivers[0].Name}, {playerTeam.Drivers[1].Name}");
-        System.Console.WriteLine($" drivers rating: {playerTeam.Drivers[0].Rating}, {playerTeam.Drivers[1].Rating}");  
+        System.Console.WriteLine($" drivers rating: {playerTeam.Drivers[0].Rating}, {playerTeam.Drivers[1].Rating}");
+
+
+
+
+
+
+        int racesCount = 10;
+    setup.RunSeason(setup.AllTeams, racesCount);
+    setup.EndOfSeason(setup.AllTeams);
     }
 }
