@@ -8,26 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\aluca\\.nuget\\packages\\": {}
+    "/Users/thomasviard/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Dev\\2023-2024 Holberton\\projets\\CSharp-Formula1_Manager\\formula1\\formula1.csproj",
+      "projectUniqueName": "/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/formula1.csproj",
       "projectName": "formula1",
-      "projectPath": "G:\\Dev\\2023-2024 Holberton\\projets\\CSharp-Formula1_Manager\\formula1\\formula1.csproj",
-      "packagesPath": "C:\\Users\\aluca\\.nuget\\packages\\",
-      "outputPath": "G:\\Dev\\2023-2024 Holberton\\projets\\CSharp-Formula1_Manager\\formula1\\obj\\",
+      "projectPath": "/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/formula1.csproj",
+      "packagesPath": "/Users/thomasviard/.nuget/packages/",
+      "outputPath": "/Users/thomasviard/Projets perso/CSharp-Perso/CSharp-Formula1_Manager/formula1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aluca\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/thomasviard/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/8.0.1/libexec/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
