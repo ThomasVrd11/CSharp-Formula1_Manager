@@ -15,6 +15,7 @@ public class Program
         System.Console.WriteLine("-------------------------------------------------");
         System.Console.WriteLine("For a maximum experience, please play with the terminal as big as possible.");
         System.Console.WriteLine("-------------------------------------------------");
+        // * Thread.Sleep(3000);
         System.Console.Clear();
         System.Console.WriteLine("Welcome to the Formula 1 2024 season!");
         System.Console.WriteLine("Congratulations on winning the Formula 2 championship!");
@@ -32,6 +33,8 @@ public class Program
                 System.Console.WriteLine("Invalid name. Please try again.");
             }
         }
+
+        // * System.Console.clear();
         System.Console.WriteLine($"Welcome to Formula 1, {playerName}!");
         System.Console.WriteLine("As a new driver in Formula 1, you will have to choose a team to drive for.");
         System.Console.WriteLine("Here are the teams and their performance ratings:");
@@ -59,9 +62,10 @@ public class Program
         System.Console.WriteLine($"You have chosen {playerTeam.Name}.");
         System.Console.WriteLine($"Great choice! You are now part of {playerTeam.Name}.");
         System.Console.WriteLine("-------------------------------------------------");
+        // * Thread.Sleep(3000);
+        // * System.Console.Clear();
         System.Console.WriteLine("Now, you have to choose the driver you will replace in the team.");
         System.Console.WriteLine("Here are the drivers you can choose from:");
-
         int indexDriver = 3;
         while (indexDriver == 3)
         {
@@ -88,7 +92,7 @@ public class Program
                     break;
             }
         }
-        System.Console.WriteLine($"You are now part of {playerTeam.Name} and will replace l'autre con.");
+        System.Console.WriteLine($"You are now part of {playerTeam.Name} and your teammate is {playerTeam.Drivers[1 - indexDriver].Name}.");
         System.Console.WriteLine($"{playerTeam.Name} drivers for the season: {playerTeam.Drivers[0].Name}, {playerTeam.Drivers[1].Name}");
         System.Console.WriteLine($" drivers rating: {playerTeam.Drivers[0].Rating}, {playerTeam.Drivers[1].Rating}");  
     }
