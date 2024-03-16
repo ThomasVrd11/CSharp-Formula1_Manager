@@ -5,6 +5,8 @@ using System.Linq;
 //* THANK U FOR WATCHING MY CODE
 // * EVERY 4 DAYS NEW PROJECT I HOPE U LIKED IT 
 // * <33333333333 XOXO
+// * barriere anti alfred ici
+
 namespace formula1
 {
     public class Team
