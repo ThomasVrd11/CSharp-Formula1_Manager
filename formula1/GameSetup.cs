@@ -119,6 +119,9 @@ public class Gamesetup
     }
     public void RunSeason(List<Team> teams, int racesCount)
     {
+        System.Console.WriteLine("\n--- Starting the season ---");
+        System.Console.WriteLine("Press any key to start the first race !");
+        Console.ReadKey();
         for (int raceNumber = 1; raceNumber <= racesCount; raceNumber++)
         {
             Console.WriteLine($"\n--- Race {raceNumber} ---");
@@ -159,18 +162,22 @@ public class Gamesetup
         Console.WriteLine("-------------------------------------------------");
         var allDrivers = teams.SelectMany(t => t.Drivers).ToList();
         allDrivers.Sort((x, y) => y.Points.CompareTo(x.Points));
+        int position = 1;
         foreach (var driver in allDrivers)
         {
-            Console.WriteLine($"{driver.Name} - {driver.Points} points");
+            Console.WriteLine($"{position}. {driver.Name} - {driver.Points} points");
+            position++;
         }
         Console.WriteLine("-------------------------------------------------");
 
         Console.WriteLine("\nFinal team standings:");
         Console.WriteLine("-------------------------------------------------");
         teams.Sort((x, y) => y.GetTotalPoints().CompareTo(x.GetTotalPoints()));
+        position = 1;
         foreach (var team in teams)
         {
-            Console.WriteLine($"{team.Name} - {team.GetTotalPoints()} points");
+            Console.WriteLine($"{position}. {team.Name} - {team.GetTotalPoints()} points");
+            position++;
         }
         Console.WriteLine("-------------------------------------------------");
     }
@@ -179,9 +186,11 @@ public class Gamesetup
         Console.WriteLine("\nCurrent team standings:");
         Console.WriteLine("-------------------------------------------------");
         teams.Sort((x, y) => y.GetTotalPoints().CompareTo(x.GetTotalPoints()));
+        int position = 1;
         foreach (var team in teams)
         {
-            Console.WriteLine($"{team.Name} - {team.GetTotalPoints()} points");
+            Console.WriteLine($"{position}. {team.Name} - {team.GetTotalPoints()} points");
+            position++;
         }
         Console.WriteLine("-------------------------------------------------");
     }
@@ -191,19 +200,14 @@ public class Gamesetup
         Console.WriteLine("-------------------------------------------------");
         var allDrivers = teams.SelectMany(t => t.Drivers).ToList();
         allDrivers.Sort((x, y) => y.Points.CompareTo(x.Points));
+        int position = 1;
         foreach (var driver in allDrivers)
         {
-            Console.WriteLine($"{driver.Name} - {driver.Points} points");
+            Console.WriteLine($"{position}. {driver.Name} - {driver.Points} points");
+            position++;
         }
         Console.WriteLine("-------------------------------------------------");
     }
-
-    // * ////////////////////////////////////////////////////////////////////////////
-    // * ////////////////////////////////////////////////////////////////////////////
-    // * /////////////////////////////////// TEXT ///////////////////////////////////
-    // * ////////////////////////////////////////////////////////////////////////////
-    // * ////////////////////////////////////////////////////////////////////////////
-
     public void FirstMessage()
     {
         System.Console.Clear();
@@ -236,11 +240,11 @@ public class Gamesetup
             }
         }
         return playerName;
-        System.Console.Clear();
         
     }
     public void DisplayTeams(string playerName)
     {
+        System.Console.Clear();
         System.Console.WriteLine($"Welcome to Formula 1, {playerName}!");
         System.Console.WriteLine("As a new driver in Formula 1, you will have to choose a team to drive for.");
         System.Console.WriteLine("Here are the teams and their performance ratings:");
@@ -250,6 +254,78 @@ public class Gamesetup
             System.Console.WriteLine($"{team.Name} - {team.PerformanceFactor}");
         }
         System.Console.WriteLine("-------------------------------------------------");
+        System.Console.WriteLine("-------------- CAREER MODE ----------------------");
+        System.Console.WriteLine("-------------------------------------------------");
+    }
+    public Team GetTeam(string playerName)
+    {
+        System.Console.WriteLine("The team you choose will determine your car's performance for the rest of the season.");
+        System.Console.WriteLine("Choose wisely!");
+        Team playerTeam = null;
+        while (playerTeam == null)
+        {
+            System.Console.WriteLine("Choose your team by typing the team name:");
+            string chosenTeam = Console.ReadLine();
+            playerTeam = AllTeams.Find(team => team.Name.ToLower() == chosenTeam.ToLower());
+            if (playerTeam == null)
+            {
+                System.Console.WriteLine("Invalid team name. Please try again.");
+            }
+        }
+        System.Console.Clear();
+        System.Console.WriteLine("-------------------------------------------------");
+        System.Console.WriteLine($"-------- {playerTeam.Name} {playerName} --------");
+        System.Console.WriteLine("-------------------------------------------------");
+        System.Console.WriteLine($"You have chosen {playerTeam.Name}.");
+        System.Console.WriteLine($"Great choice! You are now part of {playerTeam.Name}.");
+        return playerTeam;
+        Thread.Sleep(4000);
+        System.Console.Clear();
+    }
+    public int ReplaceDriver(string playerName, Team playerTeam)
+    {
+        System.Console.WriteLine("Now, you have to choose the driver you will replace in the team.");
+        System.Console.WriteLine("Here are the drivers you can choose from:");
+        int indexDriver = 3;
+        string replacingDriver;
+        while (indexDriver == 3)
+        {
+            int position = 0;
+            foreach (var driver in playerTeam.Drivers)
+            {
+                System.Console.WriteLine($"{position}. {driver.Name} - {driver.Rating}");
+                position++;
+            }
+            System.Console.WriteLine($"Choose the driver you will replace by typing the driver number, you will inherit his rating.");
+            System.Console.WriteLine($"You can choose from:\n0. {playerTeam.Drivers[0].Name}\n1. {playerTeam.Drivers[1].Name}");
+
+            replacingDriver = Console.ReadLine();
+            indexDriver = Convert.ToInt32(replacingDriver);
+            switch (indexDriver)
+            {
+                case 0:
+                    playerTeam.Drivers[0].Name = playerName;
+                    break;
+                case 1:
+                    playerTeam.Drivers[1].Name = playerName;
+                    break;
+                default:
+                    System.Console.WriteLine("Invalid driver name. Please try again.");
+                    indexDriver = 3;
+                    break;
+            }
+        }
+        System.Console.Clear();
+        System.Console.WriteLine("-------------------------------------------------");
+        System.Console.WriteLine("----------------- CAREER MODE -------------------");
+        System.Console.WriteLine("------------ LINE UP FOR THE SEASON -------------");
+        System.Console.WriteLine($"            {playerTeam.Name} - {playerTeam.Drivers[0].Name} - {playerTeam.Drivers[0].Rating}");
+        System.Console.WriteLine($"            {playerTeam.Name} - {playerTeam.Drivers[1].Name} - {playerTeam.Drivers[1].Rating}");
+        System.Console.WriteLine("------------ LINE UP FOR THE SEASON -------------");
+        System.Console.WriteLine("-------------------------------------------------");
+        System.Console.WriteLine("");
+
+        return indexDriver;
     }
 }
 
