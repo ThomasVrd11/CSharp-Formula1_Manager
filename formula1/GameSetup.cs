@@ -9,7 +9,6 @@ public class Gamesetup
     public List<Team> AllTeams { get; set; } = new List<Team>();
     public List<Driver> AllDrivers { get; set; } = new List<Driver>();
     private readonly int[] pointsForPosition = { 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 };
-
     public void InitializeTeamsAndDrivers()
     {
         //* Initialize datas for the teams and drivers inside of dictionaries
@@ -124,30 +123,32 @@ public class Gamesetup
         {
             Console.WriteLine($"\n--- Race {raceNumber} ---");
             SimulateRace(teams);
+            Console.WriteLine("-------------------------------------------------");
+            string choice;
+            do
+            {
+            Console.WriteLine("Choose what you want to do next:");
+            Console.WriteLine("1. Open driver standings");
+            Console.WriteLine("2. Open team standings");
+            Console.WriteLine("3. Continue to the next race");
+            choice = Console.ReadLine();
             
-
-            //* Display current standings
-            Console.WriteLine("\nCurrent driver standings:");
-            Console.WriteLine("-------------------------------------------------");
-            var allDrivers = teams.SelectMany(t => t.Drivers).ToList();
-            allDrivers.Sort((x, y) => y.Points.CompareTo(x.Points));
-            foreach (var driver in allDrivers)
-            {
-                Console.WriteLine($"{driver.Name} - {driver.Points} points");
-            }
-            Console.WriteLine("-------------------------------------------------");
-
-            Console.WriteLine("\nCurrent team standings:");
-            Console.WriteLine("-------------------------------------------------");
-            teams.Sort((x, y) => y.GetTotalPoints().CompareTo(x.GetTotalPoints()));
-            foreach (var team in teams)
-            {
-                Console.WriteLine($"{team.Name} - {team.GetTotalPoints()} points");
-            }
-            Console.WriteLine("-------------------------------------------------");
-
-            Console.WriteLine("Press any key to continue to the next race.");
-            Console.ReadKey();
+                
+                switch (choice)
+                {
+                    case "1":
+                        DisplayDriverStandings(teams);
+                        break;
+                    case "2":
+                        DisplayTeamStandings(teams);
+                        break;
+                    case "3":
+                        continue;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                } 
+            } while (choice != "3");
             Console.Clear();
         }
     }
@@ -197,6 +198,58 @@ public class Gamesetup
         Console.WriteLine("-------------------------------------------------");
     }
 
+    // * ////////////////////////////////////////////////////////////////////////////
+    // * ////////////////////////////////////////////////////////////////////////////
+    // * /////////////////////////////////// TEXT ///////////////////////////////////
+    // * ////////////////////////////////////////////////////////////////////////////
+    // * ////////////////////////////////////////////////////////////////////////////
 
+    public void FirstMessage()
+    {
+        System.Console.Clear();
+        System.Console.WriteLine("---------------------------------------------");
+        System.Console.WriteLine("For a better experience, please maximize the console window.");
+        System.Console.WriteLine("---------------------------------------------");
+        Thread.Sleep(4000);
+        System.Console.Clear();
+    }
+    public void Welcome()
+    {
+        System.Console.WriteLine("---------------------------------------------");
+        System.Console.WriteLine("Welcome to the Formula 1 2024 season!");
+        System.Console.WriteLine("Congratulations on winning the Formula 2 championship!");
+        System.Console.WriteLine("You are now a Formula 1 driver!");
+        System.Console.WriteLine("As a rookie, you will have to prove yourself in the upcoming season");
+        System.Console.WriteLine("You will have to compete against the best drivers in the world.");
+        System.Console.WriteLine("but first, you have to choose your driver name.");
+        System.Console.WriteLine("\nWhat will your driver name be?");
+    }
+    public string GetName()
+    {
+        string playerName = "";
+        while (playerName == "")
+        {
+            playerName = Console.ReadLine();
+            if (playerName == "")
+            {
+                System.Console.WriteLine("Invalid name. Please try again.");
+            }
+        }
+        return playerName;
+        System.Console.Clear();
+        
+    }
+    public void DisplayTeams(string playerName)
+    {
+        System.Console.WriteLine($"Welcome to Formula 1, {playerName}!");
+        System.Console.WriteLine("As a new driver in Formula 1, you will have to choose a team to drive for.");
+        System.Console.WriteLine("Here are the teams and their performance ratings:");
+        System.Console.WriteLine("-------------------------------------------------");
+        foreach (var team in AllTeams)
+        {
+            System.Console.WriteLine($"{team.Name} - {team.PerformanceFactor}");
+        }
+        System.Console.WriteLine("-------------------------------------------------");
+    }
 }
 

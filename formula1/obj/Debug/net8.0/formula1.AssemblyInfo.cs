@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("formula1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d32817a721ff7368ef8eb0d984aac5ef62afa60a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8c2a0da0f8fb79435f90371bb3779becfa6e11a")]
 [assembly: System.Reflection.AssemblyProductAttribute("formula1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("formula1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
