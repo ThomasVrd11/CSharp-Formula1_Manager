@@ -8,6 +8,7 @@ public class Driver
     public Team Team { get; set; }
     public int Points { get; set; } = 0;
     public double Rating { get; set; }
+    public double TemporaryBoost { get; set; } = 0;
 
     public Driver(string name, double rating)
     {
