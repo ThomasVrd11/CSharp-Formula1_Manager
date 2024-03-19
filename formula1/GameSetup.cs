@@ -138,7 +138,7 @@ public class Gamesetup
                 Console.WriteLine("Choose what you want to do next:");
                 Console.WriteLine("1. Open driver standings");
                 Console.WriteLine("2. Open team standings");
-                Console.WriteLine("3. Play a mini game to increase your driver's performance for next race");
+                Console.WriteLine("3. Play a mini game to increase your driver's performance for next race, only once per Grand Prix!");
                 Console.WriteLine("4. Continue to the next race");
                 choice = Console.ReadLine();
 
@@ -666,6 +666,7 @@ public class Gamesetup
         int randomIndex = random.Next(miniGames.Count);
         Func<bool> randomGame = miniGames[randomIndex];
         System.Console.Clear();
+        MyDriver.TemporaryBoost = 0;
         System.Console.WriteLine("-------------------------------------------------");
         System.Console.WriteLine($"You will play a mini game to increase your driver's performance for the next race!");
         System.Console.WriteLine("--- Mini game ---");
