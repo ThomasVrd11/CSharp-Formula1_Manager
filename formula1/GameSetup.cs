@@ -18,16 +18,16 @@ public class Gamesetup
         //* driver : driver name, performance and team name
         var teamsData = new Dictionary<string, double>
         {
-            {"Mercedes", 8.5},
-            {"Ferrari", 9.2},
-            {"Red Bull", 9.5},
-            {"McLaren", 8.1},
-            {"Alpine", 6.0},
-            {"Aston Martin", 7.5},
-            {"Alfa Romeo", 5.5},
-            {"Haas", 5.0},
-            {"Williams", 5.0},
-            {"Alpha Tauri", 5.0}
+            {"Red Bull", 14.0},
+            {"Ferrari", 13.5},
+            {"Mercedes", 12.0},
+            {"McLaren", 12.0},
+            {"Aston Martin", 10.0},
+            {"Alfa Romeo", 7.5},
+            {"Haas", 7.0},
+            {"Williams", 6.8},
+            {"Alpha Tauri", 6.5},
+            {"Alpine", 6.0}
         };
 
         var driverData = new List<(string Name, double Rating, string TeamName)>
